@@ -1,8 +1,8 @@
 import { Entity, ManyToOne, PrimaryKey, Property } from '@mikro-orm/core';
-import { Author } from './author.entity';
+import { AuthorEntity } from './author.entity';
 
 @Entity()
-export class Book {
+export class BookEntity {
   @PrimaryKey()
   id: number;
   @Property()
@@ -11,10 +11,10 @@ export class Book {
   @Property()
   publishedAge: number;
 
-  @ManyToOne(() => Author)
-  author: Author;
+  @ManyToOne(() => AuthorEntity)
+  author: AuthorEntity;
 
-  constructor(author: Author) {
+  constructor(author: AuthorEntity) {
     this.author = author;
   }
 }

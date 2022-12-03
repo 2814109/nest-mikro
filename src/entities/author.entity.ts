@@ -5,10 +5,10 @@ import {
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
-import { Book } from './book.entity';
+import { BookEntity } from './book.entity';
 
 @Entity()
-export class Author {
+export class AuthorEntity {
   @PrimaryKey()
   id: number;
 
@@ -18,6 +18,6 @@ export class Author {
   @Property()
   lastName: string;
 
-  @OneToMany(() => Book, (book) => book.author)
-  books = new Collection<Book>(this);
+  @OneToMany(() => BookEntity, (book) => book.author)
+  books = new Collection<BookEntity>(this);
 }
